@@ -1,17 +1,46 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import { ThemeProvider } from "styled-components";
+//import { HeaderComponent } from "./Components";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import { Main, Botao, Header, Calculadora, Theme, H1, H2 } from "./Styled-Components/Calculator";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+const App = () => {
+  const [Pessoas, setPessoas] = useState(3)
+
+  const menosPessoas = () => {
+    setPessoas(Pessoas - 1)
+  }
+  const maisPessoas = () => [
+    setPessoas(Pessoas + 1)
+  ]
+  return (<ThemeProvider theme={Theme}>
+    <Main>
+
+      <Calculadora>
+        <H1 style={{ "margin-top": "0px" }}>Feijoada Crocpot</H1>
+        <Header>
+
+          <Botao onClick={menosPessoas}>
+            -
+          </Botao>
+
+          <H2>{Pessoas} pessoas</H2>
+
+          <Botao onClick={maisPessoas}>
+            +
+          </Botao>
+
+        </Header>
+      </Calculadora>
+
+    </Main>
+  </ThemeProvider>)
+
+
+}
+
+
+ReactDOM.render(<App />, document.querySelector("#root"))
+
