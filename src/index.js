@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { ThemeProvider } from "styled-components";
 //import { HeaderComponent } from "./Components";
+import "./styles.css"
 
-import { Main, Botao, Header, Calculadora, Theme, H1, H2 } from "./Styled-Components/Calculator";
+import { Main, Botao, Header, Calculadora, Theme, H1, H2, HR} from "./Styled-Components/Calculator";
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
 
       <Calculadora>
         <H1 style={{ "margin-top": "0px" }}>Feijoada Crocpot</H1>
+        <HR />
         <Header>
 
           <Botao onClick={menosPessoas}>
@@ -31,8 +33,15 @@ const App = () => {
           <Botao onClick={maisPessoas}>
             +
           </Botao>
-
         </Header>
+        <HR />
+
+        <H2>Feijão {80*Pessoas}g</H2>
+        <H2>Carne {265*Pessoas}g</H2>
+        <H2>Água {265*Pessoas}ml</H2>
+
+
+
       </Calculadora>
 
     </Main>
