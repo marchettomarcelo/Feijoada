@@ -47,7 +47,11 @@ export const HR = styled.hr`
 `
 
 export const Botao = styled.button`
-    text-align:center;
+    /* text-align:center; */
+
+    display: flex;
+    justify-content:center;
+    align-items:center;
 
     height: auto;
     width: 21%;

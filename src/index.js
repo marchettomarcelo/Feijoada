@@ -10,12 +10,13 @@ import { Main, Botao, Header, Calculadora, Theme, H1, H2, HR} from "./Styled-Com
 const App = () => {
   const [Pessoas, setPessoas] = useState(3)
 
-  const menosPessoas = () => {
-    setPessoas(Pessoas - 1)
+  const menosPessoas = (menos=true) => {
+    if(menos){
+      return setPessoas(Pessoas-1)
+    }
+    return setPessoas(Pessoas+1)
   }
-  const maisPessoas = () => [
-    setPessoas(Pessoas + 1)
-  ]
+ 
   return (<ThemeProvider theme={Theme}>
     <Main>
 
@@ -24,13 +25,13 @@ const App = () => {
         <HR />
         <Header>
 
-          <Botao onClick={menosPessoas}>
+          <Botao onClick={() => menosPessoas()}>
             -
           </Botao>
 
           <H2>{Pessoas} pessoas</H2>
 
-          <Botao onClick={maisPessoas}>
+          <Botao onClick={()=> menosPessoas(false)}>
             +
           </Botao>
         </Header>
